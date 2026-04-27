@@ -13,7 +13,10 @@ const host = process.env.HOST || '127.0.0.1'
 const configuredClientUrl = process.env.CLIENT_URL || 'http://localhost:5173'
 
 const allowedOrigins = new Set([configuredClientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'])
-
+app.use(cors({
+  origin: "https://your-vercel-app.vercel.app",
+  credentials: true
+}));
 app.use(
   cors({
     origin(origin, callback) {
